@@ -1,15 +1,15 @@
 import React, {useContext, useState} from 'react'
 
 const AlertContext = React.createContext();
-const AlertToogleContext = React.createContext();
+// const AlertToogleContext = React.createContext();
 
 export const useAlert = () => {
     return useContext(AlertContext)
 }
 
-export const useAlertToogle = () => {
-    return useContext(AlertToogleContext)
-};
+// export const useAlertToogle = () => {
+//     return useContext(AlertToogleContext)
+// };
 
 //реализуем изолированная логика относительно алерта
 
@@ -19,10 +19,11 @@ export const AlertProvider = ({children}) => {
     const toggle = () => setAlert(prev => !prev);
 
     return (
-        <AlertContext.Provider value={alert}>
-            <AlertToogleContext.Provider value={toggle}>
+        <AlertContext.Provider value={{
+            visible: alert,
+            toggle
+        }}>
                 {children}
-            </AlertToogleContext.Provider>
         </AlertContext.Provider>
     )
 }

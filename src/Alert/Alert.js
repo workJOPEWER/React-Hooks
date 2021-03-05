@@ -4,10 +4,10 @@ import {useAlert} from "./AlertContext";
 export default function Alert() {
     const alert = useAlert();
 
-    if (!alert) return null
+    if (!alert.visible) return null
 
     return (
-        <div className="alert alert-danger" role="alert">
+        <div className="alert alert-danger" role="alert" onClick={alert.toggle}>
             A simple danger alert—check it out!
         </div>
     )

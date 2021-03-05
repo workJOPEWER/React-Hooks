@@ -1,8 +1,8 @@
 import React from 'react'
-import {useAlertToogle} from "./Alert/AlertContext";
+import {useAlert} from "./Alert/AlertContext";
 
 export default function Main() {
-    const toggle = useAlertToogle()
+    const {toggle} = useAlert()
     return (
         <>
             <h1>Пример с Context example</h1>
